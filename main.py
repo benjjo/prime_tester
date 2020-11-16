@@ -1,6 +1,7 @@
 import math
 import time
 
+
 class prime_number_test():
     """
     To test n for primality, divide by all of the primes less than the square root of n.
@@ -15,6 +16,9 @@ class prime_number_test():
     """
 
     def big_number_test(self, n):
+        """
+
+        """
         prime_list = self.prime_filter(n)
         isPrime = True if n % 2 and prime_list else False
         while isPrime and prime_list:
@@ -23,6 +27,12 @@ class prime_number_test():
         return isPrime
 
     def prime_filter(self, n):
+        """
+        T(n) = 1 + 1 + (sqrt(n) * 1)
+        O?
+        :param n:
+        :return list:
+        """
         maximum = int(math.sqrt(n))
         prime_list = []
         for i in range(3, maximum, 2):
@@ -31,6 +41,12 @@ class prime_number_test():
         return prime_list
 
     def prime_test(self, n):
+        """
+        T(n) = 1 + 1 + (n * 1) = T(2+n)
+        O(n)
+        :param n:
+        :return:
+        """
         isPrime = True if n % 2 else False
         count = 3
         while isPrime and count < n:
