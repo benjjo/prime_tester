@@ -10,8 +10,8 @@ class prime_number_test():
     1000004249      Total time: 6.87762188911438
                     Total time: 141.87551712989807 Traditional method
     10000004873     Total time: 62.29244923591614
-    100000004953
-    1000000005721
+    100000004953    Total time: 218.40894222259521
+    1000000005721   Total time: 1866.14448595047
     """
 
     def big_number_test(self, n):

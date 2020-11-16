@@ -16,16 +16,28 @@ def test(name, actual, expected):
     ran += 1
 
 
-print("Testing big number method.")
+print("Testing a wee number using prime_test (traditional loop method).")
+test("Testing 19 for prime. Expect True.", pnt.prime_test(19), True)
+print("Testing a bigger number using prime_test (traditional loop method).")
+test("Testing 100003679 for prime. Expect True.", pnt.prime_test(100003679), True)
+print("Testing a wee number using big_number_test (Square root method).")
 test("Testing 19 for prime. Expect True.", pnt.big_number_test(19), True)
-
+# start = time.time()
+# print("Testing a bigger number using big_number_test. (Square root method)")
+# test("Testing 100003679 for prime. Expect True.", pnt.big_number_test(100003679), True)
+# duration = time.time() - start
+# print("Total time: %10.2f" % duration)
+# start = time.time()
+# print("Testing an even bigger number using big_number_test. (Square root method)")
+# test("Testing 1000000005721 for prime. Expect True.", pnt.big_number_test(1000000005721), True)
+# duration = time.time() - start
+# print("Total time: %10.2f" % duration)
 start = time.time()
-print("Testing big number method.")
-test("Testing 100003679 for prime. Expect True.", pnt.big_number_test(100003679), True)
+print("Testing an even bigger number using big_number_test. (Square root method)")
+test("Testing 1000000005719 for prime. Expect False.", pnt.big_number_test(1000000005719), False)
 duration = time.time() - start
-print("Total time: %10.5f" % duration)
+print("Total time: %10.2f" % duration)
 
 print('================================================')
-print()
 print('All tests run:', ran - failed, 'OK,', failed, 'FAILED')
 print('================================================')
