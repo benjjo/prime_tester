@@ -31,8 +31,8 @@ class PrimeNumberTest:
     def prime_filter(self, n):
         """
         Returns a list of prime numbers from 3 to the square root of n using prime_test.
-        T(n) = 1 + 1 + (sqrt(n) * 1)
-        O(sqrt(n))
+        T(n) = 1 + 1 + (sqrt(n/2) * 1)
+        O(sqrt(n/2))
         :param n:
         :return list:
         """
@@ -47,8 +47,8 @@ class PrimeNumberTest:
         """
         Loops through the integer range of 3 to n in steps of 2 (odd numbers) and checks for a modulus of 0.
         If no 0 is found
-        T(n) = 1 + 1 + (n * 1) = T(2+n)
-        O(n)
+        T(n) = 1 + 1 + ((n * 1) / 2) = T(2+n)
+        O(n/2)
         :param n:
         :return boolean:
         """
