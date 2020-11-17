@@ -1,6 +1,6 @@
 from main import *
 
-pnt = prime_number_test()
+pnt = PrimeNumberTest()
 
 failed = 0
 ran = 0

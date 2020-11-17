@@ -1,8 +1,7 @@
 import math
-import time
 
 
-class prime_number_test():
+class PrimeNumberTest:
     """
     To test n for primality, divide by all of the primes less than the square root of n.
     some big ones:
@@ -17,7 +16,10 @@ class prime_number_test():
 
     def big_number_test(self, n):
         """
-
+        Tests n for primality using prime_test, against a list of numbers provided by prime_filter. Returns True if
+        n is prime, otherwise False.
+        :param n:
+        :return boolean:
         """
         prime_list = self.prime_filter(n)
         isPrime = True if n % 2 and prime_list else False
@@ -28,8 +30,9 @@ class prime_number_test():
 
     def prime_filter(self, n):
         """
+        Returns a list of prime numbers from 3 to the square root of n using prime_test.
         T(n) = 1 + 1 + (sqrt(n) * 1)
-        O?
+        O(sqrt(n))
         :param n:
         :return list:
         """
@@ -42,10 +45,12 @@ class prime_number_test():
 
     def prime_test(self, n):
         """
+        Loops through the integer range of 3 to n in steps of 2 (odd numbers) and checks for a modulus of 0.
+        If no 0 is found
         T(n) = 1 + 1 + (n * 1) = T(2+n)
         O(n)
         :param n:
-        :return:
+        :return boolean:
         """
         isPrime = True if n % 2 else False
         count = 3
@@ -54,12 +59,3 @@ class prime_number_test():
                 isPrime = False
             count += 2
         return isPrime
-"""
-def main():
-    pnt = prime_number_test()
-    pnt.big_number_test(9)
-
-
-if __name__ == '__main__':
-    main()
-"""
