@@ -1,4 +1,5 @@
 from main import *
+import time
 
 pnt = PrimeNumberTest()
 
