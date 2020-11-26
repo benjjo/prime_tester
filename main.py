@@ -28,6 +28,24 @@ class PrimeNumberTest:
                 isPrime = False
         return isPrime
 
+    def big_number_recursion_test(self, n):
+        """
+        Tests n for primality using prime_test, against a list of numbers provided by prime_filter. Returns True if
+        n is prime, otherwise False.
+        :param n:
+        :return boolean:
+        """
+        prime_list = self.prime_filter(n)
+        if not n % 2 and not prime_list:
+            return False
+        if len(prime_list) == 1:
+            return prime_list[0]
+        else:
+            PrimeNumberTest.big_number_recursion_test(self, prime_list[1:])
+            if not (n % prime_list[0]):
+                return False
+        return True
+
     def prime_filter(self, n):
         """
         Returns a list of prime numbers from 3 to the square root of n using prime_test.
