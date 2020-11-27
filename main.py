@@ -13,12 +13,12 @@ class PrimeNumberTest:
     1000000005721   Total time: 1866.14448595047
 
     Testing results:
-    Testing a bigger number using big_number_compact_test. (100000004953)
-    Testing 100000004953 for prime. Expect True. OK
-    Total time:     234.77
-    Testing an even bigger number using big_number_test. (100000004953)
-    Testing 100000004953 for prime. Expect True. OK
-    Total time:     210.62
+    Testing a bigger number using big_number_quick_test. (1000000005721)
+    Testing for prime. Expect True. OK
+    Total time:       0.07
+    Testing a bigger number using big_number_quick_test. (1000000005719)
+    Testing for prime. Expect False. OK
+    Total time:       0.00
     ================================================
     All tests run: 2 OK, 0 FAILED
     ================================================
@@ -47,6 +47,18 @@ class PrimeNumberTest:
             if self.prime_test(num):
                 if not n % num:
                     print("num: " + str(num) + "%: " + str(n % num))
+                    return False
+        return True
+
+    def big_number_quick_test(self, n):
+        """
+        """
+        maximum = int(math.sqrt(n))
+        for num in range(3, maximum, 2):
+            if not n % num:
+                print("n%num: " + str(n % num))
+                if self.prime_test(num):
+                    print("The number " + str(num) + " divides into " + str(n))
                     return False
         return True
 
