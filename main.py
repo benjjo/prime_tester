@@ -1,6 +1,5 @@
 import math
 
-
 class PrimeNumberTest:
     """
     To test n for primality, divide by all of the primes less than the square root of n.
@@ -12,6 +11,17 @@ class PrimeNumberTest:
     10000004873     Total time: 62.29244923591614
     100000004953    Total time: 218.40894222259521
     1000000005721   Total time: 1866.14448595047
+
+    Testing results:
+    Testing a bigger number using big_number_compact_test. (100000004953)
+    Testing 100000004953 for prime. Expect True. OK
+    Total time:     234.77
+    Testing an even bigger number using big_number_test. (100000004953)
+    Testing 100000004953 for prime. Expect True. OK
+    Total time:     210.62
+    ================================================
+    All tests run: 2 OK, 0 FAILED
+    ================================================
     """
 
     def big_number_test(self, n):
@@ -28,23 +38,18 @@ class PrimeNumberTest:
                 isPrime = False
         return isPrime
 
-    def big_number_recursion_test(self, n):
+    def big_number_compact_test(self, n):
         """
-        Tests n for primality using prime_test, against a list of numbers provided by prime_filter. Returns True if
-        n is prime, otherwise False.
-        :param n:
-        :return boolean:
+        (sqrt(n)/2) * (n/2)
         """
-        prime_list = self.prime_filter(n)
-        if not n % 2 and not prime_list:
-            return False
-        if len(prime_list) == 1:
-            return prime_list[0]
-        else:
-            PrimeNumberTest.big_number_recursion_test(self, prime_list[1:])
-            if not (n % prime_list[0]):
-                return False
+        maximum = int(math.sqrt(n))
+        for num in range(3, maximum, 2):
+            if self.prime_test(num):
+                if not n % num:
+                    print("num: " + str(num) + "%: " + str(n % num))
+                    return False
         return True
+
 
     def prime_filter(self, n):
         """
