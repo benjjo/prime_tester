@@ -52,6 +52,7 @@ class PrimeNumberTest:
 
     def big_number_quick_test(self, n):
         """
+        O(sqrt(n))
         """
         maximum = int(math.sqrt(n))
         for num in range(3, maximum, 2):
@@ -60,7 +61,6 @@ class PrimeNumberTest:
                     print("The number " + str(num) + " divides into " + str(n))
                     return False
         return True
-
 
     def prime_filter(self, n):
         """
