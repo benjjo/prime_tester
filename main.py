@@ -56,7 +56,6 @@ class PrimeNumberTest:
         maximum = int(math.sqrt(n))
         for num in range(3, maximum, 2):
             if not n % num:
-                print("n%num: " + str(n % num))
                 if self.prime_test(num):
                     print("The number " + str(num) + " divides into " + str(n))
                     return False
