@@ -50,7 +50,7 @@ class PrimeNumberTest:
                     return False
         return True
 
-    def big_number_quick_test(self, n):
+    def prime_quick_test(self, n):
         """
         O(sqrt(n))
         """
@@ -58,7 +58,7 @@ class PrimeNumberTest:
         for num in range(3, maximum, 2):
             if not n % num:
                 if self.prime_test(num):
-                    print("The number " + str(num) + " divides into " + str(n))
+                    # print("The number " + str(num) + " divides into " + str(n))
                     return False
         return True
 

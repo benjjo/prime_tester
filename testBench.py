@@ -30,15 +30,18 @@ def test(name, actual, expected):
 # test("Testing 19 for prime. Expect True.", pnt.big_number_compact_test(19), True)
 
 start = time.time()
-print("\nTesting a bigger number using big_number_new_test. (1000000005721)")
-test("Testing for prime. Expect True.", pnt.big_number_quick_test(1000000005721), True)
+print("\nTesting a bigger number using big_number_new_test. (1000000016531)")
+test("Testing for prime. Expect True.", pnt.prime_quick_test(1000000016531), True)
 duration = time.time() - start
-print("Total time: %10.2f" % duration)
+print("Total time: %10.5f" % duration)
 
+file = open("primeNumbers.txt", "a")
 start = time.time()
-print("\nTesting a bigger number using big_number_new_test. (1000000005719)")
-test("Testing for prime. Expect False.", pnt.big_number_quick_test(1000000005719), False)
-duration = time.time() - start
+for i in range(1000000016531, 1000000026531, 2):
+    if pnt.prime_quick_test(i):
+        file.write(str(i) + "\n")
+        print("Prime: " + str(i))
+file.close()
 print("Total time: %10.2f" % duration)
 
 # start = time.time()
